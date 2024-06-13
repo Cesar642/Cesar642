@@ -1,0 +1,958 @@
+/home/lubuntu/Documents/test
+vi Dockerfile
+docker build -t ubuntu-test .
+docker tag ubuntu-test cesar642/my-repo-test
+docker tag ubuntu-test cesar642/my-repo-test
+docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+
+Terminal1:
+cd /home/lubuntu/Documents/test
+docker ps
+docker login --username cesar642
+docker push cesar642/my-repo-test
+
+Terminal2:
+cd /home/lubuntu/Documents/test/withterra/docker-ubuntu/
+terraform show
+terraform apply
+terraform show|awk '/ip_address/||/hostname/'
+docker ps|awk '{if (NR > 1) print $1}'
+
+Terminal3:
+cd /home/lubuntu/Documents/automation/
+vi /etc/hosts
+export user=root
+export passwordUser=password
+./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt
+./getDetailsOutput.sh -f output_12-Nov-23_21_38_23.out -l 2
+    1  cd /run/containerd/
+    2  ll
+    3  cat containerd.sock=
+    4  cat io.containerd.runtime.v1.linux/
+    5  ls io.containerd.runtime.v1.linux/
+    6  ll io.containerd.runtime.v1.linux/
+    7  ll /run/containerd/containerd.sock
+    8  ll /run/containerd/containerd.sock.ttrpc 
+    9  ls
+   10  ls -l
+   11  cat containerd.sock
+   12  dockerd
+   13  systemctl status dockerd
+   14  ls 
+   15  ls -l
+   16  ls -l ~
+   17  pwd
+   18  cd /var/lib/etcd/
+   19  ll
+   20  rm -rf member/
+   21  ll
+   22  /snap/bin/kube-apiserver
+   23  ll /var/run/kubernetes/
+   24  apt get terraform
+   25  apt install terraform
+   26  cat /root/.kube/config
+   27  cp -R /home/lubuntu/.kube /root/
+   28  cat /root/.kube/config
+   29  cd /home/lubuntu/Documents/test/withterra/
+   30  ll
+   31  terraform init
+   32  terraform plan
+   33  cat /root/.kube/config
+   34  cat /root/.kube/config|less
+   35  terraform plan
+   36  kubeadm 
+   37  systemctl status kubeadm
+   38  systemctl status kubectl
+   39  systemctl status kubelet
+   40  systemctl restart kubelet
+   41  systemctl status kubelet
+   42  terraform plan
+   43  cd /home/lubuntu/Documents/test/withterra/
+   44  terraform plan
+   45  vi .kube/config 
+   46  cd /home/lubuntu/Documents/test/withterra/
+   47  terraform plan
+   48  terraform init
+   49  terraform plan
+   50  cat /root/.kube/config|less
+   51  kubectl version
+   52  apt-get install -y apt-transport-https ca-certificates curl gpg
+   53  curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+   54  echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+   55  apt-get update
+   56  apt-get install -y kubelet kubeadm kubectl
+   57  apt-mark hold kubelet kubeadm kubectl
+   58  kubectl version
+   59  apt-mark unhold kubelet kubeadm kubectl
+   60  kubectl version
+   61  kubeadm init
+   62  kubeadm init --v=5
+   63  netstat -anp|grep 10250
+   64  kubelet stop
+   65  killall -p kubelet
+   66  kubelet stop
+   67  netstat -anp|grep 10250
+   68  kubeadm init
+   69  netstat -anp|grep 10250
+   70  killall -p kubelet
+   71  netstat -anp|grep 2379
+   72  killall -p kube*
+   73  killall -p kube-apiserve
+   74  killall -p kube-apiservee
+   75  killall -p kube-apiserver
+   76  netstat -anp|grep 2380
+   77  systemctl stop etcd
+   78  rm -rf /etc/kubernetes/manifests/kube-controller-manager.yaml /etc/kubernetes/manifests/kube-scheduler.yaml /etc/kubernetes/manifests/etcd.yaml /etc/kubernetes/manifests/kube-apiserver.yaml
+   79  kubeadm init
+   80  rm -rf /etc/kubernetes/manifests/kube-controller-manager.yaml /etc/kubernetes/manifests/kube-scheduler.yaml /etc/kubernetes/manifests/etcd.yaml /etc/kubernetes/manifests/kube-apiserver.yaml /var/lib/etcd/member/
+   81  rm -rf /etc/kubernetes/manifests/kube-controller-manager.yaml /etc/kubernetes/manifests/kube-scheduler.yaml /etc/kubernetes/manifests/etcd.yaml /etc/kubernetes/manifests/kube-apiserver.yaml /var/lib/etcd/*
+   82  netstat -anp|grep 10250
+   83  killall -p kubelet
+   84  kubeadm init
+   85  kubeadm init --v=5
+   86  tar cpzvf /tmp/kubernates-09Nov_1527.tar.gz /etc/kubernetes/manifests/kube-apiserver.yaml /etc/kubernetes/manifests/kube-controller-manager.yaml /etc/kubernetes/manifests/kube-scheduler.yaml /etc/kubernetes/manifests/etcd.yaml /var/lib/etcd/
+   87  rm -rf /tmp/kubernates-09Nov_1527.tar.gz /etc/kubernetes/manifests/kube-apiserver.yaml /etc/kubernetes/manifests/kube-controller-manager.yaml /etc/kubernetes/manifests/kube-scheduler.yaml /etc/kubernetes/manifests/etcd.yaml /var/lib/etcd/
+   88  ps -fea|grep kube
+   89  netstat -anp|grep 10250
+   90  kubeadm init --v=5
+   91  systemctl status kubelet
+   92  journalctl -u kubelet
+   93  vi /var/lib/kubelet/kubeadm-flags.env 
+   94  netstat -anp|grep 10250
+   95  ps -fea|grep kube
+   96  systemctl restart kubelet
+   97  systemctl status kubelet
+   98  journalctl -u kubelet
+   99  systemctl status kubelet
+  100  systemctl stop kubelet
+  101  systemctl status kubelet
+  102  systemctl start kubelet
+  103  systemctl status kubelet
+  104  journalctl -u kubelet
+  105  vi /var/lib/kubelet/kubeadm-flags.env 
+  106  systemctl status kubelet
+  107  ps -fea|grep kube
+  108  killall -p kubelet
+  109  ps -fea|grep kube
+  110  killall -p kubernete
+  111  killall -p kubernetes
+  112  ps -fea|grep kube
+  113  kill -9 32448 32517 32750
+  114  ps -fea|grep kube
+  115  netstat -anp|grep 10250
+  116  systemctl status kubelet
+  117  systemctl stop kubelet
+  118  ps -fea|grep kube
+  119  ps -fea|grep kube|awk '{print $2}'
+  120  ps -fea|grep kube|awk '/!grep/{print $2}'
+  121  ps -fea|grep kube|awk '/grep/{print $2}'
+  122  ps -fea|grep kube|awk '!/grep/{print $2}'
+  123  kill -9 `ps -fea|grep kube|awk '!/grep/{print $2}'`
+  124  ps -fea|grep kube
+  125  netstat -anp|grep 10250
+  126  systemctl status kubelet
+  127  systemctl start kubelet
+  128  systemctl status kubelet
+  129  ps -fea|grep kube
+  130  kubeadm init --v=5
+  131  rm -rf /tmp/kubernates-09Nov_1527.tar.gz /etc/kubernetes/manifests/kube-apiserver.yaml /etc/kubernetes/manifests/kube-controller-manager.yaml /etc/kubernetes/manifests/kube-scheduler.yaml /etc/kubernetes/manifests/etcd.yaml /var/lib/etcd/
+  132  kubeadm init --v=5
+  133  netstat -anp|grep 10250
+  134  cd /home/lubuntu/Documents/test/withterra/
+  135  ll
+  136  terraform init
+  137  terraform plan
+  138  terraform plan --v
+  139  terraform plan -help
+  140  terraform plan
+  141  cat /root/.kube/config
+  142  kubeadm config print init-defaults
+  143  kubeadm config print join-defaults
+  144  terraform init
+  145  kubeadm init --v=5
+  146  terraform plan
+  147  ll
+  148  cat main.tf 
+  149  terraform plan
+  150  kubeadm config print join-defaults >/tmp/join.txt
+  151  kubeadm config print init-defaults >/tmp/init.txt
+  152  diff /tmp/join.txt /tmp/init.txt 
+  153  terraform
+  154  terraform plan
+  155  systemctl status kubelet
+  156  cat /root/.kube/config
+  157  terraform init --reconfigure
+  158  terraform plan
+  159  cat /root/.kube/config
+  160  cat /var/run/containerd/containerd.sock
+  161  ll /var/run/containerd/containerd.sock
+  162  cat /var/run/containerd/containerd.sock
+  163  cat /var/run/containerd/containerd.sock=
+  164  vi .kube/config 
+  165  vi /root/.kube/config
+  166  ll
+  167  vi main.tf 
+  168  terraform init
+  169  terraform plan
+  170  vi main.tf 
+  171  kubeadm version
+  172  mkdir learn-terraform-docker-container
+  173  cd learn-terraform-docker-container
+  174  touch main.tf
+  175  vi main.tf 
+  176  terraform init
+  177  terraform fmt
+  178  terraform validate
+  179  vi main.tf 
+  180  terraform apply
+  181  terraform show
+  182  terraform state list
+  183  vi main.tf 
+  184  cat main.tf 
+  185  cat ../main.tf 
+  186  pwd
+  187  history|less
+  188  docker ps
+  189  terraform state list
+  190  cd /home/lubuntu/Documents/test/withterra/docker-ubuntu
+  191  terraform state list
+  192  terraform show
+  193  ssh 172.17.0.3
+  194  docker ps
+  195  ll
+  196  vi main.tf 
+  197  terraform destroy
+  198  ps -fea|grep docker
+  199  kill -9 38390
+  200  terraform apply
+  201  terraform plan
+  202  terraform apply
+  203  terraform show
+  204  vi main.tf 
+  205  terraform fmt
+  206  terraform validate
+  207  vi main.tf 
+  208  terraform validate
+  209  vi main.tf 
+  210  terraform validate
+  211  vi main.tf 
+  212  terraform validate
+  213  terraform plan
+  214  terraform apply
+  215  terraform show
+  216  docker ps
+  217  ssh 172.17.0.3
+  218  ssh 172.17.0.4
+  219  ssh 172.17.0.5
+  220  ps -fea|grep docker
+  221  ps -fea|grep docker|grep run
+  222  kill -9 40167
+  223  docker ps
+  224  terraform show
+  225  cd /home/lubuntu/Documents/test/withterra/docker-ubuntu
+  226  terraform show
+  227  ps -fea|grep docker|grep run
+  228  docker ps
+  229  kill -9 40174 40386 40395
+  230  ps -fea|grep docker|grep run
+  231  docker ps
+  232  docker stop 6f2c39160cdb
+  233  docker stop a888d2eb7e57
+  234  docker ps
+  235  shutdown now
+  236  cd /home/lubuntu/Documents/test/withterra/learn-terraform-docker-container
+  237  ll
+  238  cd ..
+  239  mkdir docker-ubuntu
+  240  cd docker-ubuntu/
+  241  ll
+  242  touch main.tf
+  243  vi main.tf 
+  244  terraform init
+  245  terraform plan
+  246  terraform fmt
+  247  terraform validate
+  248  terraform plan
+  249  vi main.tf 
+  250  terraform init
+  251  terraform fmt
+  252  terraform validate
+  253  terraform plan
+  254  terraform apply
+  255  terraform show
+  256  kubectl get pods
+  257  ssh 172.17.0.3
+  258  terraform state list
+  259  kubectl get pods
+  260  docker ru -it --rm cesar642/my-repo-test:latest
+  261  docker run -it --rm cesar642/my-repo-test:latest
+  262  docker ps
+  263  docker ps --format '{{.Image}}' | sort | uniq -c
+  264  docker run -it --rm cesar642/my-repo-test:latest
+  265  docker ps
+  266  cd ../../..
+  267  ll
+  268  cd test/
+  269  ll
+  270  vi Dockerfile 
+  271  docker build -t ubuntu-test .
+  272  docker image ls
+  273  docker tag ubuntu-test cesar642/my-repo-test
+  274  docker push cesar642/my-repo-test
+  275  cd /home/lubuntu/Documents/test/withterra/docker-ubuntu
+  276  ll
+  277  terraform apply
+  278  terraform plan
+  279  terraform fmt
+  280  terraform validate
+  281  terraform plan
+  282  terraform apply
+  283  terraform show
+  284  docker run -it --rm cesar642/my-repo-test:latest
+  285  terraform destroy
+  286  docker ps
+  287  docker rm 1e44b26f392e
+  288  docker stop 1e44b26f392e
+  289  docker rm 1e44b26f392e
+  290  docker ps
+  291  terraform fmt
+  292  terraform validate
+  293  terraform plan
+  294  terraform apply
+  295  cat ../main.tf 
+  296  vi main.tf 
+  297  terraform validate
+  298  terraform fmt
+  299  terraform validate
+  300  cat ../main.tf 
+  301  vi main.tf 
+  302  cat ../main.tf 
+  303  docker run --help
+  304  docker run -it --rm ubuntu-test-1:latest & docker run -it --rm ubuntu-test-2:latest & docker run -it --rm ubuntu-test-3:latest &
+  305  docker login --username cesar642
+  306  docker run -it --rm ubuntu-test-1:latest & docker run -it --rm ubuntu-test-2:latest & docker run -it --rm ubuntu-test-3:latest &
+  307  docker run -it --rm cesar642/my-repo-test:latest
+  308  docker run -it --rm cesar642/my-repo-test:latest &
+  309  df -kh
+  310  ll /mnt/downloads/
+  311  ll /mnt/downloads/*.jar
+  312  cd /home/lubuntu/Documents/test/withterra/docker-ubuntu
+  313  ll
+  314  cd /home/lubuntu/Documents/
+  315  mkdir automation
+  316  cd automation/
+  317  for i in `find /mnt/downloads/ -name "*.jar" -print 2>/dev/null`;do cp $i .;done
+  318  find /mnt/downloads/ -name "*.jar" -print 2>/dev/null
+  319  ll
+  320  rm -rf .*
+  321  rm -rf *
+  322  ll
+  323  find /mnt/downloads/ -name "*.jar" -print 2>/dev/null
+  324  find /mnt/downloads/ -name "*.jar" -print 2>/dev/null|awk '!/eclipse/&&!/Poi/'
+  325  find /mnt/downloads/ -name "*.jar" -print 2>/dev/null|awk '!/eclipse/&&!/Poi/&&!/jfreeChart/'
+  326  for i in `find /mnt/downloads/ -name "*.jar" -print 2>/dev/null|awk '!/eclipse/&&!/Poi/&&!/jfreeChart/'`;do cp $i . ;done
+  327  ll
+  328  vi jfreeChart
+  329  vi checkServersAuto.sh
+  330  ll
+  331  tar zxvfp /home/lubuntu/Downloads/jdk-21_linux-x64_bin.tar.gz jdk-21.0.1/
+  332  ll
+  333  vi checkServersAuto.sh
+  334  ll
+  335  ll jdk-21.0.1/
+  336  chmod u+x checkServersAuto.sh 
+  337  ll
+  338  cp -r /home/lubuntu/Documents/test/withterra/docker-ubuntu/09112023-1/ .
+  339  ll
+  340  vi NewExpectj.jar 
+  341  vi checkServersAuto.sh
+  342  user=root
+  343  vi checkServersAuto.sh
+  344  passwordUser=password
+  345  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  346  ll
+  347  vi checkServersAuto.sh
+  348  ll
+  349  vi checkServersAuto.sh
+  350  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  351  vi checkServersAuto.sh
+  352  echo $user
+  353  echo $passwordUser
+  354  cat ./checkServersAuto.sh 
+  355  jdk-21.0.1/bin/java -cp .:expectj-2.0.7.jar:jsch-0.1.55.jar:commons-logging-1.2.jar:NewExpectj.jar com.business.client.NewAutomateCommand $1 $2 $user $passwordUser one.txt
+  356  ll
+  357  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  358  cat 09112023-1/commands.txt
+  359  vi checkServersAuto.sh
+  360  cat 09112023-1/servers.txt
+  361  echo $passwordUser
+  362  echo $user
+  363  vi checkServersAuto.sh
+  364  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  365  vi checkServersAuto.sh
+  366  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  367  vi checkServersAuto.sh
+  368  echo $user
+  369  vi checkServersAuto.sh
+  370  $user
+  371  echo $user
+  372  vi checkServersAuto.sh
+  373  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  374  shutdown now
+  375  cd /home/lubuntu/Documents/automation/
+  376  ll
+  377  export user=root
+  378  export passwordUser=password
+  379  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  380  vi checkServersAuto.sh
+  381  vi 09112023-1/servers.txt
+  382  ll
+  383  rm -rf output_11-Nov-23_21_46_5err.out 
+  384  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  385  ssh 172.17.0.3
+  386  vi getDetailsOutput.sh
+  387  chmod u+x getDetailsOutput.sh 
+  388  ll
+  389  ssh 172.17.0.3
+  390  ll
+  391  vi 09112023-1/commands.txt 
+  392  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  393  ssh 172.17.0.3
+  394  vi 09112023-1/servers.txt 
+  395  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  396  ll
+  397  ssh 172.17.0.3
+  398  shutdown now
+  399  cd /home/lubuntu/Documents/test/withterra/docker-ubuntu
+  400  terraform show
+  401  docker ps
+  402  cd /home/lubuntu/Documents/test/withterra/learn-terraform-docker-container
+  403  ll
+  404  cd /home/lubuntu/Documents/test/withterra/learn-terraform-docker-container
+  405  terraform show
+  406  ll
+  407  cd ..
+  408  ll
+  409  cd co
+  410  docker run -it --rm cesar642/my-repo-test:latest &
+  411  docker ps
+  412  ll
+  413  cd docker-ubuntu/
+  414  ll
+  415  docker run -it --rm cesar642/my-repo-test:latest &
+  416  docker ps
+  417  ll
+  418  history|less
+  419  docker login --username cesar642
+  420  history|less
+  421  ll
+  422  docker ps
+  423  docker rm 2dc5a9b4cc23 62051f15e6db
+  424  docker stop 2dc5a9b4cc23 62051f15e6db
+  425  docker rm 2dc5a9b4cc23 62051f15e6db
+  426  docker ps
+  427  terraform apply
+  428  terraform show
+  429  docker run -it --rm cesar642/my-repo-test:latest &
+  430  docker ps
+  431  docker stop 83ac8d114f0c
+  432  docker ps
+  433  ps -fea|grep check
+  434  cd /home/lubuntu/Documents/test/
+  435  ll
+  436  docker ps
+  437  vi 09112023-1/servers.txt 
+  438  vi Dockerfile 
+  439  docker build -t ubuntu-test .
+  440  docker login --username cesar642
+  441  docker run -it --rm cesar642/my-repo-test:latest &
+  442  cd /home/lubuntu/Documents/test/
+  443  ll
+  444  docker ps
+  445  docker stop `docker ps|awk '{if (NR > 1) print $1}'`
+  446  docker ps
+  447  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  448  vi Dockerfile 
+  449  docker ps
+  450  docker build -t ubuntu-test .
+  451  docker inspect ubuntu-test
+  452  docker build -t ubuntu-test .
+  453  docker tag ubuntu-test cesar642/my-repo-test
+  454  docker push cesar642/my-repo-test
+  455  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  456  docker ps
+  457  vi Dockerfile 
+  458  docker build -t ubuntu-test .
+  459  docker tag ubuntu-test cesar642/my-repo-test
+  460  docker push cesar642/my-repo-test
+  461  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  462  vi Dockerfile 
+  463  docker build -t ubuntu-test .
+  464  docker tag ubuntu-test cesar642/my-repo-test
+  465  docker push cesar642/my-repo-test
+  466  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  467  docker stop `docker ps|awk '{if (NR > 1) print $1}'`
+  468  docker ps
+  469  vi Dockerfile 
+  470  docker build -t ubuntu-test .
+  471  vi Dockerfile 
+  472  docker build -t ubuntu-test .
+  473  docker tag ubuntu-test cesar642/my-repo-test
+  474  docker push cesar642/my-repo-test
+  475  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  476  vi Dockerfile 
+  477  docker build -t ubuntu-test .
+  478  docker tag ubuntu-test cesar642/my-repo-test
+  479  docker push cesar642/my-repo-test
+  480  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  481  history|less
+  482  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  483  vi Dockerfile 
+  484  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  485  vi Dockerfile 
+  486  docker build -t ubuntu-test .
+  487  docker tag ubuntu-test cesar642/my-repo-test
+  488  docker push cesar642/my-repo-test
+  489  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  490  vi Dockerfile 
+  491  docker build -t ubuntu-test .
+  492  docker tag ubuntu-test cesar642/my-repo-test
+  493  docker push cesar642/my-repo-test
+  494  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  495  vi Dockerfile 
+  496  docker build -t ubuntu-test .
+  497  docker tag ubuntu-test cesar642/my-repo-test
+  498  docker push cesar642/my-repo-test
+  499  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  500  vi Dockerfile 
+  501  docker build -t ubuntu-test .
+  502  docker tag ubuntu-test cesar642/my-repo-test
+  503  docker push cesar642/my-repo-test
+  504  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  505  vi Dockerfile 
+  506  docker build -t ubuntu-test .
+  507  docker tag ubuntu-test cesar642/my-repo-test
+  508  docker push cesar642/my-repo-test
+  509  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  510  vi Dockerfile 
+  511  docker build -t ubuntu-test .
+  512  docker tag ubuntu-test cesar642/my-repo-test
+  513  docker push cesar642/my-repo-test
+  514  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  515  vi Dockerfile 
+  516  docker build -t ubuntu-test .
+  517  docker tag ubuntu-test cesar642/my-repo-test
+  518  docker push cesar642/my-repo-test
+  519  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  520  vi Dockerfile 
+  521  docker build -t ubuntu-test .
+  522  docker tag ubuntu-test cesar642/my-repo-test
+  523  docker push cesar642/my-repo-test
+  524  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  525  vi Dockerfile 
+  526  docker build -t ubuntu-test .
+  527  docker tag ubuntu-test cesar642/my-repo-test
+  528  docker push cesar642/my-repo-test
+  529  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  530  vi Dockerfile 
+  531  docker build -t ubuntu-test .
+  532  docker tag ubuntu-test cesar642/my-repo-test
+  533  docker push cesar642/my-repo-test
+  534  docker run -it --rm cesar642/my-repo-test:latest /bin/bash
+  535  vi Dockerfile 
+  536  docker build -t ubuntu-test .
+  537  docker tag ubuntu-test cesar642/my-repo-test
+  538  docker push cesar642/my-repo-test
+  539  cd /home/lubuntu/Documents/test/withterra/docker-ubuntu/
+  540  ll
+  541  terraform apply
+  542  ssh 172.17.0.3
+  543  ssh-keygen -f "/root/.ssh/known_hosts" -R "172.17.0.3"
+  544  ssh 172.17.0.3
+  545  terraform show
+  546  docker ps
+  547  ssh 172.17.0.3
+  548  docker ps
+  549  terraform apply
+  550  terraform show
+  551  docker ps
+  552  terraform apply
+  553  docker ps
+  554  docket ps|awk '{if (NR>1) print $1}'
+  555  docket ps|awk '{if ($NR>1) print $1}'
+  556  docker ps|awk '{if ($NR>1) print $1}'
+  557  docker ps
+  558  docker ps|awk '{if (NR > 1) print $1}'
+  559  terraform show
+  560  terraform apply
+  561  docker ps|awk '{if (NR > 1) print $1}'
+  562  terraform show
+  563  cd /home/lubuntu/Documents/automation/
+  564  ll
+  565  cat 09112023-1/commands.txt
+  566  vi 09112023-1/commands.txt
+  567  vi 09112023-1/servers.txt
+  568  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  569  export passwordUser=password
+  570  export user=root
+  571  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  572  ls -lahtr
+  573  cp /mnt/downloads/NewExpectj.jar .
+  574  ls -lahtr
+  575  date
+  576  vi 09112023-1/servers.txt
+  577  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  578  ssh 172.17.0.3
+  579  vi /etc/hosts
+  580  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  581  ls -lahtr
+  582  rm -rf output_12-Nov-23_17_01_2err.out
+  583  cat output_12-Nov-23_17_02_52.out
+  584  vi 09112023-1/commands.txt
+  585  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  586  ls -lahtr
+  587  ./getDetailsOutput.sh -f output_12-Nov-23_17_06_59.out -l 2
+  588  ./getDetailsOutput.sh -f output_12-Nov-23_17_06_59.out -l 1
+  589  cat output_12-Nov-23_17_06_59.out
+  590  hostname
+  591  cat getDetailsOutput.sh 
+  592  cat 09112023-1/commands.txt
+  593  ./getDetailsOutput.sh -f output_12-Nov-23_17_06_59.out -l 2
+  594  ./getDetailsOutput.sh -f output_12-Nov-23_17_06_59.out -l 1
+  595  ./getDetailsOutput.sh -f output_12-Nov-23_17_06_59.out -l 0
+  596  ./getDetailsOutput.sh -f output_12-Nov-23_17_06_59.out -l 1
+  597  ./getDetailsOutput.sh -f output_12-Nov-23_17_06_59.out -l 2
+  598  cat getDetailsOutput.sh 
+  599  ls -lahtr
+  600  cat output_12-Nov-23_17_06_59.out
+  601  cat output_12-Nov-23_17_06_59.out|awk '/^\*\* /'
+  602  cat output_12-Nov-23_17_06_59.out|awk '/^\*\*/'
+  603  cat output_12-Nov-23_17_06_59.out|awk '/^\*\* /'
+  604  cat output_12-Nov-23_17_06_59.out|awk '/^\*\*\s/'
+  605  cat output_12-Nov-23_17_06_59.out|awk '/^\*\* /'
+  606  cat -vet output_12-Nov-23_17_06_59.out
+  607  vi /etc/hosts
+  608  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  609  vi /etc/hosts
+  610  vi 09112023-1/servers.txt
+  611  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  612  ls -lahtr
+  613  cat -vet output_12-Nov-23_17_20_32.out
+  614  ssh 172.17.0.3
+  615  vi 09112023-1/servers.txt
+  616  vi /etc/hosts
+  617  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  618  ls -lahtr
+  619  cat -vet output_12-Nov-23_17_31_41.out
+  620  ssh 172.17.0.3
+  621  /root/.ssh/known_hosts" -R "172.17.0.3
+  622  ssh 172.17.0.3
+  623  ssh-keygen -f "/root/.ssh/known_hosts" -R "172.17.0.3"
+  624  ssh 172.17.0.3
+  625  ll
+  626  vi ./getDetailsOutput.sh 
+  627  ./getDetailsOutput.sh -f output_12-Nov-23_17_06_59.out -l 2
+  628  cat -vet output_12-Nov-23_17_31_41.out
+  629  ./getDetailsOutput.sh -f  output_12-Nov-23_17_31_41.out -l 2
+  630  vi ./getDetailsOutput.sh 
+  631  ssh 172.17.0.3
+  632  vi 09112023-1/servers.txt
+  633  vi /etc/hosts
+  634  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  635  ls -lahtr 
+  636  ./getDetailsOutput.sh -f output_12-Nov-23_17_55_45.out -l 2
+  637  cat -vet output_12-Nov-23_17_55_45.out
+  638  ssh 172.17.0.3
+  639  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  640  ls -lahtr 
+  641  ./getDetailsOutput.sh -f output_12-Nov-23_17_56_47.out -l 2
+  642  cat -vet output_12-Nov-23_17_56_47.out
+  643  ssh 172.17.0.3
+  644  ls -lahtr
+  645  cat -vet output_12-Nov-23_17_56_47.out
+  646  cat  output_12-Nov-23_17_56_47.out
+  647  sed -i 's/e[?2004l//g' output_12-Nov-23_17_56_47.out
+  648  sed -i 's/e\[?2004l//g' output_12-Nov-23_17_56_47.out
+  649  cat -vet output_12-Nov-23_17_56_47.out
+  650  sed -i 's/\[\[?2004l//g' output_12-Nov-23_17_56_47.out
+  651  cat -vet output_12-Nov-23_17_56_47.out
+  652  cat ./getDetailsOutput.sh 
+  653  cat -vet
+  654  ls -lahtr
+  655  cat -v output_12-Nov-23_17_56_47.out
+  656  ls -lahtr
+  657  sed -i 's/\^[[?2004l//g' output_12-Nov-23_17_56_47.out
+  658  sed -i 's|\^[[?2004l||g' output_12-Nov-23_17_56_47.out
+  659  sed -i 's|\^\[\[\?2004l||g' output_12-Nov-23_17_56_47.out
+  660  cat -vet output_12-Nov-23_17_56_47.out
+  661  sed -i 's|\^[[\?2004l||g' output_12-Nov-23_17_56_47.out
+  662  sed -i 's|\^[[?2004l||g' output_12-Nov-23_17_56_47.out
+  663  sed -i 's|\^\[\[?2004l||g' output_12-Nov-23_17_56_47.out
+  664  cat -vet output_12-Nov-23_17_56_47.out
+  665  cat -v output_12-Nov-23_17_56_47.out |sed 's|\^\[\[?2004l||g' output_12-Nov-23_17_56_47.out2
+  666  cat -v output_12-Nov-23_17_56_47.out |sed 's|\^\[\[?2004l||g' > output_12-Nov-23_17_56_47.out2
+  667  cat -vet output_12-Nov-23_17_56_47.out2
+  668  cat output_12-Nov-23_17_56_47.out2
+  669  ls -lahtr
+  670  cat -vet output_12-Nov-23_17_55_45.out
+  671  cat -vet output_12-Nov-23_17_55_45.out| sed 's/\x1b\[[?]\{0,1\}[0-9;]*[a-zA-Z]//g' | tr -d '\r' > output_12-Nov-23_17_55_45.out2
+  672  cat output_12-Nov-23_17_55_45.out2
+  673  cat output_12-Nov-23_17_55_45.out| sed 's/\x1b\[[?]\{0,1\}[0-9;]*[a-zA-Z]//g' | tr -d '\r' > output_12-Nov-23_17_55_45.out2
+  674  cat output_12-Nov-23_17_55_45.out2
+  675  cat output_12-Nov-23_17_55_45.out| sed 's/\x1b\[[?]\{0,1\}[0-9;]*[a-zA-Z]//g' | tr -d '\r' > output_12-Nov-23_17_55_45.out2
+  676  cat -vet output_12-Nov-23_17_55_45.out2
+  677  cat output_12-Nov-23_17_55_45.out
+  678  cat output_12-Nov-23_17_55_45.out| sed 's/\x1b\[[?]\{0,1\}[0-9;]*[a-zA-Z]//g' | tr -d '\r' > output_12-Nov-23_17_55_45.out2
+  679  sed -i 's/\x1b\[[?]\{0,1\}[0-9;]*[a-zA-Z]//g'  output_12-Nov-23_17_55_45.out2
+  680  cat output_12-Nov-23_17_55_45.out2
+  681  sed -i 's/e[?\{0,1\}[0-9;]*[a-zA-Z]//g'  output_12-Nov-23_17_55_45.out2
+  682  cat output_12-Nov-23_17_55_45.out2
+  683  sed -i 's/\x1b\[[?]\{0,1\}[0-9;]*[a-zA-Z]//g'  output_12-Nov-23_17_55_45.out2
+  684  cat output_12-Nov-23_17_55_45.out2
+  685  cat output_12-Nov-23_17_55_45.out| sed 's/\x1b\[[?]\{0,1\}[0-9;]*[a-zA-Z]//g' | tr -d '\r' > output_12-Nov-23_17_55_45.out2
+  686  cat output_12-Nov-23_17_55_45.out2
+  687  sed -i 's/\^(e[?2004l)//g'  output_12-Nov-23_17_55_45.out2
+  688  sed -i 's/^(e[?2004l)//g'  output_12-Nov-23_17_55_45.out2
+  689  sed -i 's/^e[?2004l//g'  output_12-Nov-23_17_55_45.out2
+  690  sed -i 's/^e\[?2004l//g'  output_12-Nov-23_17_55_45.out2
+  691  cat output_12-Nov-23_17_55_45.out2
+  692  vi getDetailsOutput.sh 
+  693  ls -lahtr
+  694  ./getDetailsOutput.sh -f output_12-Nov-23_17_55_45.out -l 2
+  695  ls -lahtr
+  696  cat -vet output_12-Nov-23_17_55_45.out_2
+  697  vi getDetailsOutput.sh 
+  698  ./getDetailsOutput.sh -f output_12-Nov-23_17_55_45.out -l 2
+  699  cat -vet output_12-Nov-23_17_55_45.out_2
+  700  ./getDetailsOutput.sh -f output_12-Nov-23_17_55_45.out -l 2
+  701  cat -vet output_12-Nov-23_17_55_45.out_2
+  702  vi getDetailsOutput.sh 
+  703  ./getDetailsOutput.sh -f output_12-Nov-23_17_55_45.out -l 2
+  704  cat -vet output_12-Nov-23_17_55_45.out_2
+  705  ./getDetailsOutput.sh -f output_12-Nov-23_17_55_45.out -l 2
+  706  vi getDetailsOutput.sh 
+  707  ./getDetailsOutput.sh -f output_12-Nov-23_17_55_45.out -l 2
+  708  cat -vet output_12-Nov-23_17_55_45.out_2
+  709  ./getDetailsOutput.sh -f output_12-Nov-23_17_55_45.out -l 2
+  710  cat -vet output_12-Nov-23_17_55_45.out_2
+  711  cat  output_12-Nov-23_17_55_45.out_2
+  712  vi getDetailsOutput.sh 
+  713  ls -lahtr
+  714  ./getDetailsOutput.sh -f output_12-Nov-23_17_31_41.out -l 2
+  715  ls -lahtr
+  716  vi getDetailsOutput.sh 
+  717  ls -lahtr
+  718  ./getDetailsOutput.sh -f output_12-Nov-23_17_20_32.out -l 2
+  719  ls -lahtr
+  720  cat output_12-Nov-23_17_20_32.out_2
+  721  vi getDetailsOutput.sh 
+  722  ./getDetailsOutput.sh -f output_12-Nov-23_17_20_32.out -l 2
+  723  ls -lahtr
+  724  cat output_12-Nov-23_17_20_32.out
+  725  ./getDetailsOutput.sh -f output_12-Nov-23_17_20_32.out -l 2
+  726  ./getDetailsOutput.sh -f output_12-Nov-23_17_20_32.out -l 1
+  727  ./getDetailsOutput.sh -f output_12-Nov-23_17_20_32.out -l 0
+  728  ./getDetailsOutput.sh -f output_12-Nov-23_17_20_32.out -l 2
+  729  ls -lahtr
+  730  cat 09112023-1/commands.txt 
+  731  ./getDetailsOutput.sh -f output_12-Nov-23_17_20_32.out -l 2
+  732  cd /home/lubuntu/Documents/automation/
+  733  vi /etc/hosts
+  734  vi 09112023-1/servers.txt
+  735  vi 09112023-1/commands.txt
+  736  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  737  export user=root
+  738  export passwordUser=password
+  739  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  740  ls -lahtr
+  741  ./getDetailsOutput.sh -f output_12-Nov-23_21_38_23.out -l 2
+  742  vi 09112023-1/servers.txt
+  743  vi 09112023-1/commands.txt
+  744  rm -rf output_12-Nov-23_*
+  745  ./checkServersAuto.sh 09112023-1/servers.txt 09112023-1/commands.txt 
+  746  ls -lahtr
+  747  ./getDetailsOutput.sh -f output_12-Nov-23_21_40_02.out -l 2
+  748  vi 09112023-1/commands.txt
+  749  cd /home/lubuntu/Documents/automation/
+  750  history|less
+  751  ls -lahtr
+  752  cat /home/lubuntu/Desktop/todo.odt 
+  753  cat /home/lubuntu/Desktop/todo.txt 
+  754  cd /home/lubuntu/Documents/test/withterra/docker-ubuntu/
+  755  ll
+  756  cd /home/lubuntu/Documents/test/
+  757  ll
+  758  docker ps
+  759  docker login --username cesar642
+  760  docker push cesar642/my-repo-test
+  761  history|less
+  762  !
+  763  history|less
+  764  cd /home/lubuntu/Documents/test/withterra/docker-ubuntu/
+  765  terraform show
+  766  terraform plan
+  767  terraform apply
+  768  terraform show
+  769  docker ps|awk '{if (NR > 1) print $1}'
+  770  terraform show
+  771  terraform show|awk '/ip_address/&&/hostname/'
+  772  terraform show|awk '/ip_address/||/hostname/'
+  773  docker ps|awk '{if (NR > 1) print $1}'
+  774  history|less
+  775  kubectl 
+  776  kubectl cluster-info
+  777  cd /home/lubuntu/Documents/test/
+  778  ;;
+  779  ll
+  780  cd /root/
+  781  ll
+  782  vi cluster/kube-up.sh
+  783  pwd
+  784  ll
+  785  mkdir #!/usr/bin/env bash
+  786  # Copyright 2014 The Kubernetes Authors.
+  787  #
+  788  # Licensed under the Apache License, Version 2.0 (the "License");
+  789  # you may not use this file except in compliance with the License.
+  790  # You may obtain a copy of the License at
+  791  #
+  792  #     http://www.apache.org/licenses/LICENSE-2.0
+  793  #
+  794  # Unless required by applicable law or agreed to in writing, software
+  795  # distributed under the License is distributed on an "AS IS" BASIS,
+  796  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  797  # See the License for the specific language governing permissions and
+  798  # limitations under the License.
+  799  # Bring up a Kubernetes cluster.
+  800  #
+  801  # If the full release name (gs://<bucket>/<release>) is passed in then we take
+  802  # that directly.  If not then we assume we are doing development stuff and take
+  803  # the defaults in the release config.
+  804  set -o errexit
+  805  set -o nounset
+  806  set -o pipefail
+  807  KUBE_ROOT=$(dirname "${BASH_SOURCE[0]}")/..
+  808  cd /home/lubuntu/Documents/test/
+  809  ll
+  810  cd /home/lubuntu/Documents/test/withterra/docker-ubuntu/
+  811  terraform show|awk '/ip_address/||/hostname/'
+  812  cd /home/lubuntu/Documents/automation/
+  813  ll
+  814  ls -lahtr
+  815  cat 02052024-1/servers.txt
+  816  cat 02052024-1/commands.txt 
+  817  ssh ubuntuhost4
+  818  ./checkServersAuto.sh 02052024-1/servers.txt 02052024-1/commands.txt 
+  819  cat ./checkServersAuto.sh 
+  820  ./checkServersAuto.sh 02052024-1/servers.txt 02052024-1/commands.txt
+  821  bash -o ./checkServersAuto.sh 02052024-1/servers.txt 02052024-1/commands.txt
+  822  bash -x ./checkServersAuto.sh 02052024-1/servers.txt 02052024-1/commands.txt
+  823  ll
+  824  cat ./checkServersAuto.sh 
+  825  cat 02052024-1/servers.txt
+  826  cat -vet 02052024-1/servers.txt
+  827  cat /etc/hosts
+  828  cd /home/lubuntu/Documents/test/withterra/docker-ubuntu/
+  829  terraform show|awk '/ip_address/||/hostname/'
+  830  cd /home/lubuntu/Documents/automation/
+  831  cat ./checkServersAuto.sh 
+  832  bash -x ./checkServersAuto.sh 02052024-1/servers.txt 02052024-1/commands.txt
+  833  ls -lahtr
+  834  cp /mnt/downloads/NewExpectj.jar .
+  835  bash -x ./checkServersAuto.sh 02052024-1/servers.txt 02052024-1/commands.txt
+  836  ll
+  837  cp NewExpectj.jar_bkp NewExpectj.jar
+  838  bash -x ./checkServersAuto.sh 02052024-1/servers.txt 02052024-1/commands.txt
+  839  cp /mnt/downloads/NewExpectj.jar .
+  840  bash -x ./checkServersAuto.sh 02052024-1/servers.txt 02052024-1/commands.txt
+  841  ll
+  842  ll checkServersAuto.sh *
+  843  ll checkServersAuto.sh*
+  844  cat checkServersAuto.sh 
+  845  export user=root
+  846  export passwordUser=password
+  847  bash -x ./checkServersAuto.sh 02052024-1/servers.txt 02052024-1/commands.txt
+  848  cd /home/lubuntu/Documents/test/withterra/docker-ubuntu/
+  849  terraform destroy
+  850  terraform show|awk '/ip_address/||/hostname/'
+  851  cd /home/lubuntu/Documents/test/
+  852  ll
+  853  history|less
+  854  history >> /home/lubuntu/Desktop/todo.txt 
+  
+Kubernetes Installation:
+
+  677  sudo apt-get install -y apt-transport-https ca-certificates curl gpg
+  678  curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+  679  echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+  680  sudo apt-get update
+  681  sudo apt-get install -y kubelet kubeadm kubectl
+  682  sudo apt-mark hold kubelet kubeadm kubectl
+  683  sudo systemctl enable --now kubelet
+  684  kubectl version --client
+  685  kubectl version --client --output=yaml
+  686  ip route show
+  687  ip a
+  688  shutdown now
+  689  su -
+  690  sudo ls -l /var/run/kubernetes/
+  691  su -
+  692  vi Desktop/kubernetesInit.output
+  693  mkdir -p ~/.kube
+  694  cp --help
+  695  cat [200~~/.kube/config~
+  696  cat ~/.kube/config
+  697  diff /etc/kubernetes/admin.conf ~/.kube/config 
+  698  sudo diff /etc/kubernetes/admin.conf ~/.kube/config 
+  699  kubelet get pods
+  700  kubelet  pods
+  701  kubectl get pods
+  702  cp -p ~/.kube/config ~/.kube/config.bk
+  703  sudo cp -i /etc/kubernetes/admin.conf ~/.kube/config
+  704  sudo chown $(id -u):$(id -g) ~/.kube/config
+  705  sudo su -
+  706  ls -lahtr ~/.kube/config
+  707  kubectl get pods
+  708  k get pods
+  709  vi ~/.bash_aliases
+  710  k get pods
+  711  kubectl get pods
+  712  vi ~/.bash_aliases
+  713  source ~/.bash_aliases 
+  714  k get pods
+  715  sudo su -
+  716  k get pods
+  717  su -
+  718  shutdown now
+  719  history|less
+  720  history|tail -100
+  721  echo "Kubernetes Installation">> ~/Desktop/todo.txt ;history|tail -100 >> ~/Desktop/todo.txt 
+
+Init Kubernetes:
+  384  kubeadm reset --cri-socket unix:///var/run/cri-dockerd.sock
+  385  iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
+  386  kubeadm init --cri-socket unix:////var/run/cri-dockerd.sock
+  387  id -u
+  388  id -g
+  389  kubectl get pods
+  390  export KUBECONFIG=/etc/kubernetes/admin.conf
+  391  kubectl get pods
+  392  echo $PATH
+  393  export PATH:$PATH:$KUBECONFIG
+  394  export PATH=$PATH:$KUBECONFIG
+  395  echo $PATH
+  396  kubectl get pods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
