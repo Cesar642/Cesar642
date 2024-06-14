@@ -879,3 +879,6 @@ export passwordUser=password
   852  ll
   853  history|less
   854  history >> /home/lubuntu/Desktop/todo.txt 
+
+To make it work on VirtualBox, remove the --node-ip 
+/etc/systemd/system/kubelet.service.d/10-kubeadm.conf
