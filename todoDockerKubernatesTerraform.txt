@@ -900,3 +900,12 @@ To make it work on VirtualBox, remove the --node-ip
   394  kubectl delete pod mypod -n ckad-prep
 
 kubectl delete namespace ckad-prep
+
+using custom docker image:
+sudo docker login --username cesar642
+kubectl run mydockerpod --image=cesar642/my-repo-test  --restart=Never -n ckad-prep
+kubectl get ns
+kubectl exec mydockerpod -it -n ckad-prep -- /bin/bash
+kubectl describe pod mydockerpod -n ckad-prep
+
+
