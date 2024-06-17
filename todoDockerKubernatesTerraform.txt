@@ -882,3 +882,21 @@ export passwordUser=password
 
 To make it work on VirtualBox, remove the --node-ip 
 /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+
+  369  kubectl taint nodes --all node-role.kubernetes.io/control-plane-
+
+
+  369  kubectl taint nodes --all node-role.kubernetes.io/control-plane-
+
+  345  kubectl run mypod --image=nginx:2.3.5 --restart=Never --port=80 --namespace=ckad-prep
+  346  kubectl get pods -n ckad-prep
+  356  export KUBE_EDITOR="vi"
+  361  kubectl describe pod mypod -n ckad-prep
+  375  kubectl describe pod mypod -n ckad-prep
+  376  kubectl describe pod mypod -n ckad-prep -f temp.yaml
+  388  kubectl exec mypod -it -n ckad-prep -- /bin/sh
+  392  kubectl logs -n ckad-prep mypod
+  393  journalctl -u kubelet
+  394  kubectl delete pod mypod -n ckad-prep
+
+kubectl delete namespace ckad-prep
